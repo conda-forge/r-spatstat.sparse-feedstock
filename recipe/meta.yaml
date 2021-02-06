@@ -1,4 +1,4 @@
-{% set version = '1.2-0' %}
+{% set version = "1.2-1" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,10 +10,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/spatstat.sparse_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/spatstat.sparse/spatstat.sparse_{{ version }}.tar.gz
-  sha256: 55a34d97a493e789bda84c353b0c43068251b835135dd50dd483f9ef3029f9ef
+  sha256: 627ae4c87d12325d95cff2d1824091c67cdd989e2acddffb8b90fdfe0e1661f0
 
 build:
-  merge_build_host: True  # [win]
+  merge_build_host: true  # [win]
   number: 0
   rpaths:
     - lib/R/lib/
@@ -50,9 +50,7 @@ test:
 about:
   home: http://spatstat.org/
   license: GPL-2.0-or-later
-  summary: Defines sparse three-dimensional arrays and supports standard operations on them.
-    The package also includes utility functions for matrix calculations that are common
-    in statistics, such as quadratic forms.
+  summary: Defines sparse three-dimensional arrays and supports standard operations on them. The package also includes utility functions for matrix calculations that are common in statistics, such as quadratic forms.
   license_family: GPL2
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
