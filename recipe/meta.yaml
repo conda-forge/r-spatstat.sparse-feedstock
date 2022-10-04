@@ -21,6 +21,11 @@ build:
 
 requirements:
   build:
+    - cross-r-base {{ r_base }}  # [build_platform != target_platform]
+    - r-tensor                   # [build_platform != target_platform]
+    - r-spatstat.utils           # [build_platform != target_platform]
+    - r-matrix                   # [build_platform != target_platform]
+    - r-abind                    # [build_platform != target_platform]
     - {{ compiler('c') }}              # [not win]
     - {{ compiler('m2w64_c') }}        # [win]
     - {{ posix }}filesystem        # [win]
