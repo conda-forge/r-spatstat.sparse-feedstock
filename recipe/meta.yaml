@@ -3,7 +3,7 @@
 
 package:
   name: r-spatstat.sparse
-  version: {{ version|replace("-", "_") }}
+  version: "{{ version|replace("-", "_") }}"
 
 source:
   url:
@@ -16,6 +16,10 @@ build:
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -37,13 +41,13 @@ requirements:
     - r-base
     - r-matrix
     - r-abind
-    - r-spatstat.utils >=3.0_2
+    - r-spatstat.utils >=3.2_3
     - r-tensor
   run:
     - r-base
     - r-matrix
     - r-abind
-    - r-spatstat.utils >=3.0_2
+    - r-spatstat.utils >=3.2_3
     - r-tensor
 
 test:
